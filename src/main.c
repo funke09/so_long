@@ -42,7 +42,8 @@ int main(int ac, char *av[])
         printf("%d\n", ret);
         return(ret);
     }
-    print_map(so_long.map);
+    // print_map(so_long.map);
+    // printf("x=%i y=%i", g_x, g_y);
     // parsing(&so_long, av[1]); // check .ber // stock => **map
     // display(&so_long); // mlx ..
     return 0;

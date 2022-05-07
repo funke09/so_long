@@ -27,11 +27,10 @@ int     read_check(char *filename, t_long *so_long)
     int fd;
     char *line;
     int len;
-    int y;
 
     i = 1;
-    y = count_lines(filename);
-    so_long->map = (char**)malloc(sizeof(char *) * (y + 1));
+    g_y = count_lines(filename);
+    so_long->map = (char**)malloc(sizeof(char *) * (g_y + 1));
     if (!so_long->map)
         return (-3);
     line = NULL;
@@ -64,5 +63,6 @@ int     read_check(char *filename, t_long *so_long)
     so_long->map[i]= NULL;
     if (!full_wall(so_long->map[i - 1]))
                 return(-5);
+    g_x = len - 1;
     return(1);
 }
