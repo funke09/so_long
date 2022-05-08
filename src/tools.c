@@ -29,30 +29,32 @@ int is_valid(char c)
     return(0);
 }
 
+void fill_symbol(char c)
+{
+    if (c == 'P')
+        g_symbol[POS] += 1;
+    else if (c == 'C')
+        g_symbol[COLL] += 1;
+    else if (c == 'E')
+        g_symbol[EXT] += 1;
+}
+
 int check_line(char *line)
 {
     int i;
 
     i = 1;
     if (line[0] != '1')
-    {
-        printf("err1");
         return (0);
-    }
     while (line[i])
     {
         if (!is_valid(line[i]))
-        {
-            printf("err2");
             return (0);
-        }
+        else if(line[i] == 'P' || line[i] == 'C' || line[i] == 'E')
+            fill_symbol(line[i]);
         i++;
     }
     if(line[i - 2] != '1')
-    {
-        printf("err3");
         return 0;
-    }
-
     return (1);
 }

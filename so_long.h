@@ -9,9 +9,13 @@
 # include <stdio.h>
 
 #include "libft/libft.h"
+#define POS 0
+#define COLL 1
+#define EXT 2
 
 int g_x;
 int g_y;
+int g_symbol[3];
 
 typedef struct s_long
 {

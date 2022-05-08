@@ -53,7 +53,7 @@ int     read_check(char *filename, t_long *so_long)
             free(line);
             break ;
         }
-        if (len != ft_strlen(line))
+        if (len != (int)ft_strlen(line))
             return (-2);
         if(!check_line(line))
             return(-6);
@@ -63,6 +63,8 @@ int     read_check(char *filename, t_long *so_long)
     so_long->map[i]= NULL;
     if (!full_wall(so_long->map[i - 1]))
                 return(-5);
+    if (g_symbol[POS] != 1 || g_symbol[COLL] < 1 || g_symbol[EXT] > 1)
+        return (-8);
     g_x = len - 1;
     return(1);
 }
