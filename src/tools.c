@@ -24,7 +24,7 @@ int full_wall(char *line)
 
 int is_valid(char c)
 {
-    if(c == '1' || c == '0' || c == 'E' || c == 'C' || c == 'P' || c == '\n')
+    if(c == '1' || c == '0' || c == 'E' || c == 'C' || c == 'P' || c == '\n' || c == 'N')
         return(1);
     return(0);
 }
