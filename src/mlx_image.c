@@ -92,28 +92,62 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 int 	deal_key(int key, t_long *so_long)
 {
-    // (void)(arg);
-    // int fd;
     (void) key;
 	// ft_putchar_fd('z', 1);
     printf("%d\n", key);
-    // if(key == ESC)
-    //    ft_exit(so_long);
-    if(key == W_KEY) // up 
-    {
-        printf("w");
-    }
+    printf("px=%d py=%d\n", so_long->px, so_long->py);
+    printf("x=%d y=%d\n", so_long->x, so_long->y);
+    if(key == ESC)
+        ft_exit(so_long);
+    // if(key == W_KEY) // up 
+    // {
+    //     if(so_long->map[so_long->px][so_long->py + 1] != '1')
+    //     {
+    //         if(so_long->map[so_long->px][so_long->py + 1] == 'C')
+    //             g_symbol[COLL] -= 1;
+    //         if(so_long->map[so_long->px][so_long->py + 1] != 'E')
+    //         {
+    //             so_long->move++;
+    //             so_long->map[so_long->px][so_long->py + 1] = 'P';
+    //             so_long->map[so_long->px][so_long->py] = '0';
+    //         }
+    //         so_long->px++;
+    //     }
+    //     so_long->py++;
+    //     printf("w");
+    
+
+    // }
     else if(key == S_KEY) // down
     {
-        printf("w");
+        ft_putnbr_fd(so_long->move, 1);
+        ft_putstr_fd("moves\n", 1);
+        if(so_long->map[so_long->px + 1][so_long->py] != '1')
+        {
+            if(so_long->map[so_long->px + 1][so_long->py] == 'C')
+            {
+                g_symbol[COLL] -= 1;
+                so_long->px++;
+            }
+            if(so_long->map[so_long->x + 1][so_long->py + 1] != 'E')
+            {
+                so_long->move++;
+                so_long->map[so_long->px + 1][so_long->py] = 'P';
+                so_long->map[so_long->px][so_long->py] = '0';
+                // so_long->px++;
+            }
+        }
+        // ft_putnbr_fd(so_long->move, 1);
+        // ft_putstr_fd("moves\n", 1);
+        // printf("s");
     }
     else if(key == A_KEY) // left
     {
-        printf("w");
+        printf("a");
     }
     else if(key == D_KEY) // right
     {
-        printf("w");
+        printf("d");
     }
     check_image(so_long->map, so_long);
 	return 0;
@@ -122,18 +156,14 @@ int 	deal_key(int key, t_long *so_long)
 void    my_mlx(t_long *so_long)
 {
     t_data img;
-    // int pixel_bites;
-    // int line_bites;
-    // int endian;
 
     so_long->mlx_ptr.mlx = mlx_init();
 	so_long->mlx_ptr.win = mlx_new_window(so_long->mlx_ptr.mlx, g_x * 50, g_y * 50, "Hello world!");
 	img.img = mlx_new_image(so_long->mlx_ptr.mlx, g_x * 50, g_y * 50);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								&img.endian);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,\
+	&img.endian);
     get_image(so_long);
     check_image(so_long->map, so_long);
     mlx_key_hook(so_long->mlx_ptr.win, deal_key, (void *)so_long);
-    //mlx_hook(so_long->win_ptr, 2, 1L<<0, deal_key, &so_long);
 	mlx_loop(so_long->mlx_ptr.mlx);
 }

@@ -8,10 +8,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Mon May 16 05:42:29 2022
+# Make data base, printed on Mon May 16 11:46:20 2022
 
 # Variables
 
+ 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
@@ -42,15 +43,14 @@ CFLAGS = -Wall -Wextra -Werror
 MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
- 
 # makefile (from `Makefile', line 17)
 OBJS = $(SRC:.c=.o)
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000cczm00337x/T/vscode-ipc-c7debabb-97d5-41a3-96f8-ac5036fef896.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000cczm00337x/T/vscode-ipc-23c28698-96e5-434d-adf9-06521cf1e69c.sock
 # environment
 VSCODE_CWD = /
 # environment
-Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.GN8wvJCrO2/Render
+Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.Vx2ch7nyea/Render
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Visual Studio Code.app/Contents/Resources/app/bin
 # environment
@@ -62,7 +62,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.WcPq2CbNe9/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.CGg8pBo6ZY/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -132,7 +132,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000003.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # makefile (from `Makefile', line 4)
@@ -168,7 +168,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 1218
+VSCODE_PID = 53265
 # variable set hash-table stats:
 # Load=78/1024=8%, Rehash=0, Collisions=4/106=4%
 
@@ -197,7 +197,7 @@ VSCODE_PID = 1218
 src/tools.o: src/tools.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `src/tools'
-#  Last modified 2022-05-16 00:26:04
+#  Last modified 2022-05-16 08:56:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -218,7 +218,7 @@ all: so_long
 src/main.o: src/main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `src/main'
-#  Last modified 2022-05-16 00:26:04
+#  Last modified 2022-05-16 08:56:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -229,9 +229,8 @@ src/main.o: src/main.c
 
 src/error.o: src/error.c
 #  Implicit rule search has been done.
- 
 #  Implicit/static pattern stem: `src/error'
-#  Last modified 2022-05-16 00:26:04
+#  Last modified 2022-05-16 08:56:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -267,7 +266,7 @@ src/tools.c:
 src/read_check.o: src/read_check.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `src/read_check'
-#  Last modified 2022-05-16 00:26:04
+#  Last modified 2022-05-16 08:56:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -279,7 +278,7 @@ src/read_check.o: src/read_check.c
 src/mlx_m.o: src/mlx_m.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `src/mlx_m'
-#  Last modified 2022-05-16 00:26:04
+#  Last modified 2022-05-16 08:56:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -300,7 +299,7 @@ fclean: clean
 src/mlx_image.o: src/mlx_image.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `src/mlx_image'
-#  Last modified 2022-05-16 00:26:04
+#  Last modified 2022-05-16 08:56:02
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -312,12 +311,13 @@ src/mlx_image.o: src/mlx_image.c
 # Not a target:
 src/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-13 22:59:22
+#  Last modified 2022-05-16 06:14:36
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
+ 
 # Not a target:
 src/error.c:
 #  Implicit rule search has been done.
@@ -359,7 +359,7 @@ src/read_check.c:
 # Not a target:
 src/mlx_m.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-15 18:52:45
+#  Last modified 2022-05-16 06:22:12
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -367,7 +367,7 @@ src/mlx_m.c:
 
 so_long: src/main.o src/error.o src/read_check.o src/tools.o src/mlx_m.o src/mlx_image.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-16 00:26:07
+#  Last modified 2022-05-16 08:56:04
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -380,7 +380,7 @@ so_long: src/main.o src/error.o src/read_check.o src/tools.o src/mlx_m.o src/mlx
 # Not a target:
 src/mlx_image.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-15 22:50:25
+#  Last modified 2022-05-16 08:55:58
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -399,6 +399,6 @@ src/mlx_image.c:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon May 16 05:42:29 2022
+# Finished Make data base on Mon May 16 11:46:20 2022
 
  
