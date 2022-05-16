@@ -5,14 +5,7 @@
 // 	write(1, &c, 1);
 // }
 
-int 	deal_key(int key, void *arg)
-{
-    (void) key;
-    (void) arg;
-	ft_putchar_fd('z', 1);
-	//mlx_pixel_put(mlx_ptr, win_ptr);
-	return 0;
-}
+
 
 int convert_color(int color, int endian)
 {    
@@ -34,7 +27,12 @@ int convert_color(int color, int endian)
     }
     return *((int*)color_channel);
 }
-
+ 
+int	ft_exit(t_long *so_long)
+{
+	mlx_destroy_window(so_long->mlx_ptr.mlx, so_long->mlx_ptr.win);
+	exit (0);
+}
 // int main()
 // {
 //     void    *mlx_ptr;
