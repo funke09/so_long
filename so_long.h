@@ -54,14 +54,9 @@ typedef struct s_long
    int px;
    int py;
 
-	void	*wall_img;
-	void	*door_img;
-	void	*coins_img;
-	void	*player_img;
-   void  *empty;
-   void  *enemy;
    void  *image;
    int   move;
+   int	collect;
 }               t_long;
 
 
@@ -75,7 +70,7 @@ int     count_lines(char *filename);
 int      is_valid(char c);
 int      convert_color(int color, int endian);
 int 	deal_key(int key, t_long *so_long);
-void    get_image(t_long *so_long);
+void    get_image(t_long *so_long, int x, int y);
 void    check_image(char **map, t_long *so_long);
 void    pos_player(t_long *so_long, char **map);
 void    my_mlx(t_long *so_long);

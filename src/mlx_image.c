@@ -1,61 +1,57 @@
 #include "../so_long.h"
 
 
-void    get_image(t_long *so_long)
+void    get_image(t_long *so_long, int x, int y)
 {
-    so_long->coins_img = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
-    "images/coin.xpm", &so_long->x, &so_long->y);
-    if(so_long->coins_img == '\0')
-      showerror((void*)&so_long, "no coins");
-    so_long->door_img = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx,\
-    "images/close_door.xpm", &so_long->x, &so_long->y);
-    if(so_long->door_img == '\0')
-        showerror((void*)&so_long, "no exit");
-    so_long->player_img = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
-    "images/princess.xpm", &so_long->x, &so_long->y);
-    if(so_long->player_img == '\0')
-         showerror((void*)&so_long, "no player");
-    so_long->wall_img = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
-    "images/wall.xpm", &so_long->x, &so_long->y);
-    if(so_long->wall_img == '\0')
-        showerror((void*)&so_long, "no walls");
-    so_long->empty = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
-    "images/space.xpm", &so_long->x, &so_long->y);
-    if(so_long->empty == '\0')
-         showerror((void*)&so_long, "no spaces");
-
-     return;    
-
+    if (so_long->map[y][x] == 'C')
+        so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
+        "images/coin.xpm", &so_long->x, &so_long->y);
+    else if (so_long->map[y][x] == 'E')
+        so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx,\
+        "images/close_door.xpm", &so_long->x, &so_long->y);
+    else if (so_long->map[y][x] == 'P')
+        so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
+        "images/princess.xpm", &so_long->x, &so_long->y);
+    else if (so_long->map[y][x] == '1')
+        so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
+        "images/wall.xpm", &so_long->x, &so_long->y);
+    else if (so_long->map[y][x] == '0')
+        so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
+        "images/space.xpm", &so_long->x, &so_long->y); 
 }
 
 void    check_image(char **map, t_long *so_long)
 {
-    // int x = 0;
-    // int y 0;
-    so_long->y = 0;
-    while(map[so_long->y])
+    int x = 0;
+    int y = 0;
+    // so_long->y = 0;
+    while(y < g_y)
     {
-        so_long->x = 0;
-        while (map[so_long->y][so_long->x])
+        x = 0;
+        while (x < g_x)
         {
-            if (map[so_long->y][so_long->x] == '0')
+            get_image(so_long, x, y);
+            if (so_long->image == NULL)
+                printf("null image\n");
+            if (map[y][x] == '0')
                 mlx_put_image_to_window(so_long->mlx_ptr.mlx, so_long->mlx_ptr.win,\
-                so_long->empty, so_long->x * 50, so_long->y * 50);
-            if (map[so_long->y][so_long->x] == '1')
+                so_long->image, x * 50, y * 50);
+            if (map[y][x] == '1')
 				mlx_put_image_to_window(so_long->mlx_ptr.mlx, so_long->mlx_ptr.win, \
-				so_long->wall_img, so_long->x * 50, so_long->y * 50);
-             if (map[so_long->y][so_long->x] == 'P')
+				so_long->image, x * 50, y * 50);
+            if (map[y][x] == 'P')
 				mlx_put_image_to_window(so_long->mlx_ptr.mlx, so_long->mlx_ptr.win, \
-				so_long->player_img, so_long->x * 50, so_long->y * 50);
-             if (map[so_long->y][so_long->x] == 'C')
+				so_long->image, x * 50, y * 50);
+            if (map[y][x] == 'C')
 				mlx_put_image_to_window(so_long->mlx_ptr.mlx, so_long->mlx_ptr.win, \
-				so_long->coins_img, so_long->x * 50, so_long->y * 50);
-             if (map[so_long->y][so_long->x] == 'E')
+				so_long->image, x * 50, y * 50);
+            if (map[y][x] == 'E')
 				mlx_put_image_to_window(so_long->mlx_ptr.mlx, so_long->mlx_ptr.win, \
-				so_long->door_img, so_long->x * 50, so_long->y * 50);
-            so_long->x++;
+				so_long->image, x * 50, y * 50);
+            mlx_destroy_image(so_long->mlx_ptr.mlx, so_long->image);
+            x++;
         }
-       so_long->y++; 
+       y++; 
     }
 }
 
@@ -95,52 +91,30 @@ int 	deal_key(int key, t_long *so_long)
     (void) key;
 	// ft_putchar_fd('z', 1);
     printf("%d\n", key);
-    printf("px=%d py=%d\n", so_long->px, so_long->py);
-    printf("x=%d y=%d\n", so_long->x, so_long->y);
+    // printf("px=%d py=%d\n", so_long->px, so_long->py);
     if(key == ESC)
         ft_exit(so_long);
     // if(key == W_KEY) // up 
     // {
-    //     if(so_long->map[so_long->px][so_long->py + 1] != '1')
-    //     {
-    //         if(so_long->map[so_long->px][so_long->py + 1] == 'C')
-    //             g_symbol[COLL] -= 1;
-    //         if(so_long->map[so_long->px][so_long->py + 1] != 'E')
-    //         {
-    //             so_long->move++;
-    //             so_long->map[so_long->px][so_long->py + 1] = 'P';
-    //             so_long->map[so_long->px][so_long->py] = '0';
-    //         }
-    //         so_long->px++;
-    //     }
-    //     so_long->py++;
-    //     printf("w");
-    
-
     // }
-    else if(key == S_KEY) // down
-    {
-        ft_putnbr_fd(so_long->move, 1);
-        ft_putstr_fd("moves\n", 1);
-        if(so_long->map[so_long->px + 1][so_long->py] != '1')
-        {
-            if(so_long->map[so_long->px + 1][so_long->py] == 'C')
-            {
-                g_symbol[COLL] -= 1;
-                so_long->px++;
-            }
-            if(so_long->map[so_long->x + 1][so_long->py + 1] != 'E')
-            {
-                so_long->move++;
-                so_long->map[so_long->px + 1][so_long->py] = 'P';
-                so_long->map[so_long->px][so_long->py] = '0';
-                // so_long->px++;
-            }
-        }
-        // ft_putnbr_fd(so_long->move, 1);
-        // ft_putstr_fd("moves\n", 1);
-        // printf("s");
-    }
+    // else if(key == S_KEY) // down
+    // {
+    //     if(so_long->map[so_long->py - 1][so_long->px] != '1')
+    //     {
+    //         if(so_long->map[so_long->py - 1][so_long->px] == 'C')
+    //         {
+    //             so_long->collect += 1;
+    //             so_long->px++;
+    //         }
+    //         if(so_long->map[so_long->py - 1][so_long->px] != 'E')
+    //         {
+    //             so_long->map[so_long->px + 1][so_long->py] = 'P';
+    //             so_long->map[so_long->px][so_long->py] = '0';
+    //             // so_long->px++;
+    //         }
+    //     }
+    //     so_long->move++;
+    // }
     else if(key == A_KEY) // left
     {
         printf("a");
@@ -162,7 +136,7 @@ void    my_mlx(t_long *so_long)
 	img.img = mlx_new_image(so_long->mlx_ptr.mlx, g_x * 50, g_y * 50);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,\
 	&img.endian);
-    get_image(so_long);
+    // get_image(so_long, 0, 0);
     check_image(so_long->map, so_long);
     mlx_key_hook(so_long->mlx_ptr.win, deal_key, (void *)so_long);
 	mlx_loop(so_long->mlx_ptr.mlx);
