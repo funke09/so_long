@@ -16,7 +16,7 @@ HEADER=so_long.h
 INCLUDE= -I . -I $(LIBFT)
 
 OBJS=$(SRC:.c=.o)
-CFLAGS= -Wall -Wextra -Werror
+CFLAGS= -O3 -Wall -Wextra -Werror
 cc=gcc
 INC= -lmlx -framework OpenGL -framework AppKit #-L./mlx -I/usr/local/include/ 
 RM= rm -f

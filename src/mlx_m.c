@@ -31,6 +31,7 @@ int convert_color(int color, int endian)
 int	ft_exit(t_long *so_long)
 {
 	mlx_destroy_window(so_long->mlx_ptr.mlx, so_long->mlx_ptr.win);
+    free_long(so_long);
 	exit (0);
 }
 // int main()

@@ -36,7 +36,6 @@ int    read_first(char *filename, t_long *so_long, char **line, int *len)
     so_long->map[0] = ft_strndup(*(line), (*len) - 1);
     free(*(line));
     line = NULL;
-    // ft_putendl_fd(so_long->map[0], 2);
     return (1);
 }
 
@@ -52,14 +51,14 @@ int    read_last(int *i, t_long *so_long, int *len)
 
 int check_if_last_line(char *line, t_long *so_long, int *i, int *len)
 {
-     int l;
+    int l;
      
     l = ft_strlen(line);
     if (line[l - 1] != '\n') // the last line 
     {
         if (l + 1 != *len)
             return (-7);
-        so_long->map[(*i)++] = ft_strndup(line, l - 1);
+        so_long->map[(*i)++] = ft_strndup(line, l);
         free(line);
         return (1);
     }
@@ -79,7 +78,6 @@ int     read_check(char *filename, t_long *so_long)
         return (-1);
     while ((line = get_next_line(g_fd)))
     {
-        // ft_putstr_fd(line, 2);
         if (check_if_last_line(line, so_long, &i, &len) > 0)
             break ;
         if (len != (int)ft_strlen(line))
@@ -87,14 +85,12 @@ int     read_check(char *filename, t_long *so_long)
         if(!check_line(line))
             return(-6);
         so_long->map[i] = ft_strndup(line, len - 1);
-        // ft_putendl_fd(so_long->map[i], 2);
         free(line);
         line = NULL;
         i++;
     }
-    // so_long->map[i]= NULL;
+    so_long->map[i]= NULL;
     if ((read_last(&i, so_long, &len)) < 0)
         return (-2);
-    // print_long(so_long);
     return(1);
 }

@@ -23,19 +23,12 @@ int main(int ac, char **av)
 
     if (ac != 2)
     {
-        // exit(1);
-        showerror(&so_long, "error: usage ./so_long filename.");
+        ft_putendl_fd("error: usage ./so_long filename.", STDERR_FILENO);
+        exit(1);
     }
-    if((ret=read_check(av[1], &so_long)) < 0){
-        printf("%d\n", ret);
+    if((ret=read_check(av[1], &so_long)) < 0)
         return(ret);
-    }
-    // printf("%s\n", "hhhhh");
-    printf("gx=%i gy=%i\n", g_x, g_y);
-    // ft_putstr_fd("sdfdsf0", 2);
-    // print_long(&so_long);
-    // ft_putstr_fd("sdfdsf1", 2);
-    // printf("sfdsf");
+    so_long.move = 0;
     my_mlx(&so_long);
     return 0;
 }

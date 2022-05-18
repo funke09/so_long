@@ -14,13 +14,3 @@ int check_extension(char *filename)
         return (-1);
     return (0);
 }
-
-int    parsing(t_long *so_long, char *filename)
-{
-    if (check_extension(filename) < 0)
-        return (-1);
-    //get_x_y
-    //stock map
-    //check_map
-    return (0);
-}

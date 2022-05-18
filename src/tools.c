@@ -89,3 +89,29 @@ int	check_collect(t_long *var)
     }
 	return (0);
 }
+
+void    free_long(t_long *so_long)
+{
+    int i;
+
+    i = 0;
+    while (so_long->map[i])
+    {
+        free(so_long->map[i]);
+        so_long->map[i] = NULL;
+        i++;
+    }
+    free(so_long->map);
+    so_long->map = NULL;
+}
+
+int	print_steps(t_long *var)
+{
+	char	*str;
+
+	str = ft_itoa(var->move);
+	mlx_string_put(var->mlx_ptr.mlx, var->mlx_ptr.win, (SIZE) + 5,
+		15, 0xfffffff, str);
+	free(str);
+	return (0);
+}

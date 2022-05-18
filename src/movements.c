@@ -40,7 +40,6 @@ int	move_up(t_long *var)
 
 int	movements(int key, t_long *var)
 {
-	dprintf(STDERR_FILENO, "px=%d, py=%d\n", var->px, var->py);
 	if ((key == A_KEY) // for exit
 		&& (var->map[var->py][var->px - 1] == 'E'))
 		check_collect(var);

@@ -24,6 +24,7 @@
 #define ESC 53
 # define X_EVENT_KEY_PRESS        2
 # define X_EVENT_KEY_EXIT        17 // ESC / exit
+# define SIZE 55 
 
  
 int g_x;
@@ -77,7 +78,7 @@ int	ft_exit(t_long *so_long);
 int	check_collect(t_long *var);
 int	count_collec(t_long *var);
 int	movements(int key, t_long *var);
-
-
+void    free_long(t_long *so_long);
+int	print_steps(t_long *var);
 void    print_long(t_long *so_long);
 #endif
