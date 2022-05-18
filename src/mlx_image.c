@@ -9,7 +9,6 @@ void    load_image(t_long *so_long, int x, int y)
 
     // if (!so_long)
     //     printf("map == NULL");
-    printf("dezt");
     if (so_long->map[y][x] == 'C')
         so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
         "images/coin.xpm", &so_long->px, &so_long->py);
@@ -40,7 +39,7 @@ void    print_map(t_long *so_long)
         x = 0;
         while (x < g_x)
         {
-            printf("x=%i, y=%i\n", x, y);
+            // printf("x=%i, y=%i\n", x, y);
             load_image(so_long, x, y);
             printf("get_image end.\n");
             x++;
@@ -56,15 +55,15 @@ void    pos_player(t_long *so_long)
     int j;
 
     i = 0;
-    while(so_long->map[i])
+    while(i < g_y)
     {
         j = 0;
-        while(so_long->map[i][j])
+        while(j < g_x)
         {
             if(so_long->map[i][j] == 'P')
             {
-                so_long->px = i;
-                so_long->py = j;
+                so_long->px = j;
+                so_long->py = i;
             }
             j++;
         }
@@ -86,14 +85,16 @@ void    print_long(t_long *so_long)
     int i,j;
     i = 0;
     ft_putstr_fd("map: \n", 1);
-    while (i++ <= g_y)
+    while (i < g_y)
     {
         j = 0;
-         while (j++ <= g_x)
+         while (j < g_x)
          {
              ft_putchar_fd(so_long->map[i][j], 1);
+             j++;
          }
          ft_putchar_fd('\n', 2);
+         i++;
     }
     ft_putstr_fd("sadfdsaf", 1);
     if (!so_long->mlx_ptr.mlx || !so_long->mlx_ptr.win)
@@ -141,10 +142,13 @@ void    my_mlx(t_long *so_long)
 	// img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,\
 	// &img.endian);
     
+    ft_putstr_fd("debug1", 2);
     pos_player(so_long);
+    ft_putstr_fd("debug2", 2);
     count_collec(so_long);
+    ft_putstr_fd("debug3", 2);
     print_map(so_long); // print
-    // print_long(so_long);
+    print_long(so_long);
     mlx_hook(so_long->mlx_ptr.win, X_EVENT_KEY_PRESS, 1L << 0, deal_key, so_long);
 	// mlx_hook(var.win, X_EVENT_KEY_EXIT, 1L << 0, mlx_close, &var);
     mlx_expose_hook(so_long->mlx_ptr.win, ft_expose, so_long);

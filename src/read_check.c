@@ -95,6 +95,6 @@ int     read_check(char *filename, t_long *so_long)
     // so_long->map[i]= NULL;
     if ((read_last(&i, so_long, &len)) < 0)
         return (-2);
-    print_long(so_long);
+    // print_long(so_long);
     return(1);
 }
