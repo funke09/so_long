@@ -11,19 +11,19 @@ void    load_image(t_long *so_long, int x, int y)
     //     printf("map == NULL");
     if (so_long->map[y][x] == 'C')
         so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
-        "images/coin.xpm", &so_long->px, &so_long->py);
+        "images/coin.xpm", &so_long->x, &so_long->y);
     else if (so_long->map[y][x] == 'E')
         so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx,\
-        "images/close_door.xpm", &so_long->px, &so_long->py);
+        "images/close_door.xpm", &so_long->x, &so_long->y);
     else if (so_long->map[y][x] == 'P')
         so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
-        "images/princess.xpm", &so_long->px, &so_long->py);
+        "images/princess.xpm", &so_long->x, &so_long->y);
     else if (so_long->map[y][x] == '1')
         so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
-        "images/wall.xpm", &so_long->px, &so_long->py);
+        "images/wall.xpm", &so_long->x, &so_long->y);
     else if (so_long->map[y][x] == '0')
         so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
-        "images/space.xpm", &so_long->px, &so_long->py);
+        "images/space.xpm", &so_long->x, &so_long->y);
     mlx_put_image_to_window(so_long->mlx_ptr.mlx, so_long->mlx_ptr.win, so_long->image, x * 50, y * 50);
     mlx_destroy_image(so_long->mlx_ptr.mlx, so_long->image);
 }
@@ -41,7 +41,7 @@ void    print_map(t_long *so_long)
         {
             // printf("x=%i, y=%i\n", x, y);
             load_image(so_long, x, y);
-            printf("get_image end.\n");
+            // printf("get_image end.\n");
             x++;
         }
        y++; 

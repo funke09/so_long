@@ -49,8 +49,8 @@ typedef struct s_long
 {
    t_vars mlx_ptr;
    char **map;
-   // int x;
-   // int y;
+   int x;
+   int y;
    int px;
    int py;
 
