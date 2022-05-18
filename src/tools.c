@@ -58,3 +58,34 @@ int check_line(char *line)
         return 0;
     return (1);
 }
+
+int	count_collec(t_long *var)
+{
+	int		row;
+	int		col;
+
+	row = 0;
+	var->collect = 0;
+	while (row < g_y)
+	{
+		col = 0;
+		while (col < g_x)
+		{
+			if (var->map[row][col] == 'C')
+				var->collect += 1;
+			col++;
+		}
+		row++;
+	}
+	return (var->collect);
+}
+
+int	check_collect(t_long *var)
+{
+	if (count_collec(var) == 0)
+    {
+        ft_putstr_fd("\e[34m\e[1mCONGRATS\n!!!! You WON !!!!\e[0m\n", 1);
+		ft_exit(var);
+    }
+	return (0);
+}

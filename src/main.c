@@ -15,29 +15,11 @@ int check_extension(char *filename)
     return (0);
 }
 
-void    print_map(char **map)
-{
-    int i;
-
-    i = 0;
-    while(map[i])
-    {
-        ft_putstr_fd(map[i], 1);
-        i++;
-    }
-}
-
-
 
 int main(int ac, char **av)
 { 
-    t_long so_long;
-
-    (void)ac;
-    (void)av;
-
-    // t_long image;
     int ret;
+    t_long so_long;
 
     if (ac != 2)
     {
@@ -48,8 +30,12 @@ int main(int ac, char **av)
         printf("%d\n", ret);
         return(ret);
     }
-    printf("%s\n", "hhhhh");
-    printf("x=%i y=%i\n", g_x, g_y);
+    // printf("%s\n", "hhhhh");
+    printf("gx=%i gy=%i\n", g_x, g_y);
+    // ft_putstr_fd("sdfdsf0", 2);
+    // print_long(&so_long);
+    // ft_putstr_fd("sdfdsf1", 2);
+    // printf("sfdsf");
     my_mlx(&so_long);
     return 0;
 }

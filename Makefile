@@ -9,6 +9,7 @@ SRC=src/main.c\
 	src/tools.c\
 	src/mlx_m.c\
 	src/mlx_image.c\
+	src/movements.c\
 
 HEADER=so_long.h
 

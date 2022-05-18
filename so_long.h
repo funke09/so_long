@@ -49,8 +49,8 @@ typedef struct s_long
 {
    t_vars mlx_ptr;
    char **map;
-   int x;
-   int y;
+   // int x;
+   // int y;
    int px;
    int py;
 
@@ -63,16 +63,21 @@ typedef struct s_long
 
 void     showerror(t_long *so_long, char *message);
 int     read_check(char *filename, t_long *so_long);
-void     print_map(char **map);
 int      full_wall(char *line);
 int      check_line(char *line);
 int     count_lines(char *filename);
 int      is_valid(char c);
 int      convert_color(int color, int endian);
 int 	deal_key(int key, t_long *so_long);
-void    get_image(t_long *so_long, int x, int y);
-void    check_image(char **map, t_long *so_long);
-void    pos_player(t_long *so_long, char **map);
+void    load_image(t_long *lg, int x, int y);
+void    print_map(t_long *so_long);
+void    pos_player(t_long *so_long);
 void    my_mlx(t_long *so_long);
 int	ft_exit(t_long *so_long);
+int	check_collect(t_long *var);
+int	count_collec(t_long *var);
+int	movements(int key, t_long *var);
+
+
+void    print_long(t_long *so_long);
 #endif

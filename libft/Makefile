@@ -6,7 +6,7 @@
 #    By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 02:18:15 by zcherrad          #+#    #+#              #
-#    Updated: 2021/11/25 04:29:44 by zcherrad         ###   ########.fr        #
+#    Updated: 2022/05/18 05:56:18 by zcherrad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ ft_putstr_fd.c\
 ft_split.c\
 ft_strchr.c\
 ft_strdup.c\
+ft_strndup.c\
 ft_striteri.c\
 ft_strjoin.c\
 ft_strlcat.c\
