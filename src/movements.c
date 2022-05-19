@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   movements.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/19 05:53:42 by zcherrad          #+#    #+#             */
+/*   Updated: 2022/05/19 05:53:51 by zcherrad         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../so_long.h"
 
 int	move_left(t_long *var)
@@ -40,7 +52,7 @@ int	move_up(t_long *var)
 
 int	movements(int key, t_long *var)
 {
-	if ((key == A_KEY) // for exit
+	if ((key == A_KEY)
 		&& (var->map[var->py][var->px - 1] == 'E'))
 		check_collect(var);
 	else if ((key == A_KEY)
