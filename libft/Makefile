@@ -6,7 +6,7 @@
 #    By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/16 02:18:15 by zcherrad          #+#    #+#              #
-#    Updated: 2022/05/18 05:56:18 by zcherrad         ###   ########.fr        #
+#    Updated: 2022/05/20 00:35:06 by zcherrad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ ft_tolower.c\
 ft_toupper.c\
 get_next_line_utils.c\
 get_next_line.c\
+ft_strdel.c\
 
 B_SRCS = ft_lstadd_back.c\
 ft_lstadd_front.c\

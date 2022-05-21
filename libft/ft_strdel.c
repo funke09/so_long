@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 11:49:18 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/20 00:23:56 by zcherrad         ###   ########.fr       */
+/*   Created: 2022/05/20 00:32:01 by zcherrad          #+#    #+#             */
+/*   Updated: 2022/05/20 00:37:48 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_strdel(char **as)
 {
-	size_t	i;
-
-	if (!s || !s[0])
-		return (-1);
-	i = 0;
-	while (s[i])
+	if (!as)
 	{
-		i++;
+		free(*as);
+		*as = 0;
 	}
-	return (i);
 }

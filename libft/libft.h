@@ -6,13 +6,12 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 03:40:42 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/18 05:56:06 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/20 00:37:22 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -65,4 +64,5 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 char	*get_next_line(int fd);
+void	ft_strdel(char **as);
 #endif

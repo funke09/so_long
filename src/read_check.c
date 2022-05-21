@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 06:00:40 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/19 06:14:02 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/21 01:12:08 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,19 @@ int	count_lines(char *filename)
 {
 	int		count;
 	char	*line;
-	int		fd;
 
 	count = 0;
-	fd = open(filename, O_RDONLY);
+	g_fd = open(filename, O_RDONLY);
 	line = NULL;
-	if (fd < 0)
+	if (g_fd < 0)
 		return (-1);
-	while ((line = get_next_line(fd)))
+	line = get_next_line(g_fd);
+	while (line || count > 0)
 	{
+		if (count > 0)
+			line = get_next_line(g_fd);
+		if (line == NULL)
+			break ;
 		free(line);
 		line = NULL;
 		count++;
@@ -39,7 +43,8 @@ int	read_first(char *filename, t_long *so_long, char **line, int *len)
 	if (!so_long->map)
 		return (-3);
 	*(line) = NULL;
-	if ((g_fd = open(filename, O_RDONLY)) < 0)
+	g_fd = open(filename, O_RDONLY);
+	if (g_fd < 0)
 		return (-4);
 	*(line) = get_next_line(g_fd);
 	if (!*(line) || !full_wall(*(line)))
@@ -55,7 +60,7 @@ int	read_last(int *i, t_long *so_long, int *len)
 {
 	if (!full_wall(so_long->map[*i - 1]))
 		return (-5);
-	if (g_symbol[POS] != 1 || g_symbol[COLL] < 1 || g_symbol[EXT] > 1)
+	if (g_symbol[POS] != 1 || g_symbol[COLL] < 1 || g_symbol[EXT] < 1)
 		return (-8);
 	g_x = (*len) - 1;
 	return (1);
@@ -88,21 +93,23 @@ int	read_check(char *filename, t_long *so_long)
 	len = 0;
 	if ((read_first(filename, so_long, &line, &len)) < 0)
 		return (-1);
-	while ((line = get_next_line(g_fd)))
+	line = get_next_line(g_fd);
+	while (line || i > 1)
 	{
-		if (check_if_last_line(line, so_long, &i, &len) > 0)
+		if (i > 1)
+			line = get_next_line(g_fd);
+		if (line && check_if_last_line(line, so_long, &i, &len) > 0)
 			break ;
 		if (len != (int)ft_strlen(line))
 			return (-2);
 		if (!check_line(line))
 			return (-6);
-		so_long->map[i] = ft_strndup(line, len - 1);
-		free(line);
-		line = NULL;
-		i++;
+		so_long->map[i++] = ft_strndup(line, len - 1);
+		ft_strdel(&line);
 	}
 	so_long->map[i] = NULL;
 	if ((read_last(&i, so_long, &len)) < 0)
 		return (-2);
+	close(g_fd);
 	return (1);
 }
