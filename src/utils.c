@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 00:02:51 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/21 01:12:16 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/22 23:41:31 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,41 @@ int	print_steps(t_long *var)
 		15, 0xfffffff, str);
 	free(str);
 	return (0);
+}
+
+int	read_check2(t_long *so_long, int i, int len)
+{
+	if ((read_last(&i, so_long, &len)) < 0)
+		return (-2);
+	close(g_fd);
+	return (1);
+}
+
+int	loop_check(t_long *so_long, char **filename)
+{
+	int		i;
+	char	*line;
+	int		len;
+
+	i = 1;
+	len = 0;
+	if ((read_first(filename, so_long, &line, &len)) < 0)
+		return (-1);
+	line = get_next_line(g_fd);
+	while (line || i > 1)
+	{
+		if (i > 1)
+			line = get_next_line(g_fd);
+		if (line && check_if_last_line(line, so_long, &i, &len) > 0)
+			break ;
+		if (len != (int)ft_strlen(line) || !check_line(line))
+		{
+			ft_strdel(&line);
+			showerror("Invalid map: lateral wall not configured \
+			or not a retangle");
+		}
+		so_long->map[i++] = ft_strndup(line, len - 1);
+		ft_strdel(&line);
+		return (1);
+	}
 }

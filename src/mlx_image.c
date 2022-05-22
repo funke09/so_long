@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 05:46:30 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/21 01:03:10 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/22 01:07:31 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	load_image(t_long *so_long, int x, int y)
 		"images/coin.xpm", &so_long->x, &so_long->y);
 	else if (so_long->map[y][x] == 'E')
 		so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
-		"images/close_door.xpm", &so_long->x, &so_long->y);
+		"images/exit.xpm", &so_long->x, &so_long->y);
 	else if (so_long->map[y][x] == 'P')
 		so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
-		"images/princess.xpm", &so_long->x, &so_long->y);
+		"images/player.xpm", &so_long->x, &so_long->y);
 	else if (so_long->map[y][x] == '1')
 		so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
-		"images/wall.xpm", &so_long->x, &so_long->y);
+		"images/tree.xpm", &so_long->x, &so_long->y);
 	else if (so_long->map[y][x] == '0')
 		so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
 		"images/space.xpm", &so_long->x, &so_long->y);

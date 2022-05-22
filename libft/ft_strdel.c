@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 00:32:01 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/20 00:37:48 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/22 20:00:07 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_strdel(char **as)
 {
-	if (!as)
+	if (as)
 	{
 		free(*as);
-		*as = 0;
+		*as = NULL;
 	}
 }

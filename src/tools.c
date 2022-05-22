@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 06:14:37 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/21 00:05:45 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/22 01:46:33 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,17 +55,17 @@ int	check_line(char *line)
 
 	i = 1;
 	if (line[0] != '1')
-		return (0);
+		showerror("Invalid map: top wall not configured");
 	while (line[i])
 	{
 		if (!is_valid(line[i]))
-			return (0);
+			showerror("Invalid map: lateral wall not configured");
 		else if (line[i] == 'P' || line[i] == 'C' || line[i] == 'E')
 			fill_symbol(line[i]);
 		i++;
 	}
 	if (line[i - 2] != '1')
-		return (0);
+		showerror("Invalid map: last wall not configured");
 	return (1);
 }
 

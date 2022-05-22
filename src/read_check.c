@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 06:00:40 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/21 01:12:08 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/22 23:43:30 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ int	read_first(char *filename, t_long *so_long, char **line, int *len)
 	g_y = count_lines(filename);
 	so_long->map = (char **)malloc(sizeof(char *) * (g_y + 1));
 	if (!so_long->map)
-		return (-3);
+		return (-1);
 	*(line) = NULL;
 	g_fd = open(filename, O_RDONLY);
 	if (g_fd < 0)
-		return (-4);
+		return (-1);
 	*(line) = get_next_line(g_fd);
 	if (!*(line) || !full_wall(*(line)))
-		return (-1);
+		showerror("Invalid map: top wall not configured");
 	*len = ft_strlen(*(line));
 	so_long->map[0] = ft_strndup(*(line), (*len) - 1);
 	free(*(line));
@@ -59,9 +59,9 @@ int	read_first(char *filename, t_long *so_long, char **line, int *len)
 int	read_last(int *i, t_long *so_long, int *len)
 {
 	if (!full_wall(so_long->map[*i - 1]))
-		return (-5);
+		showerror("Invalid map: down wall not configured");
 	if (g_symbol[POS] != 1 || g_symbol[COLL] < 1 || g_symbol[EXT] < 1)
-		return (-8);
+		showerror("Invalid map: invalid symbols");
 	g_x = (*len) - 1;
 	return (1);
 }
@@ -84,32 +84,36 @@ int	check_if_last_line(char *line, t_long *so_long, int *i, int *len)
 
 int	read_check(char *filename, t_long *so_long)
 {
-	int		i;
-	char	*line;
-	int		len;
+	// int		i;
+	// char	*line;
+	// int		len;
 
-	i = 1;
-	line = NULL;
-	len = 0;
-	if ((read_first(filename, so_long, &line, &len)) < 0)
-		return (-1);
-	line = get_next_line(g_fd);
-	while (line || i > 1)
-	{
-		if (i > 1)
-			line = get_next_line(g_fd);
-		if (line && check_if_last_line(line, so_long, &i, &len) > 0)
-			break ;
-		if (len != (int)ft_strlen(line))
-			return (-2);
-		if (!check_line(line))
-			return (-6);
-		so_long->map[i++] = ft_strndup(line, len - 1);
-		ft_strdel(&line);
-	}
+	// i = 1;
+	// len = 0;
+	// if ((read_first(filename, so_long, &line, &len)) < 0)
+	// 	return (-1);
+	// line = get_next_line(g_fd);
+	// while (line || i > 1)
+	// {
+	// 	if (i > 1)
+	// 		line = get_next_line(g_fd);
+	// 	if (line && check_if_last_line(line, so_long, &i, &len) > 0)
+	// 		break ;
+	// 	if (len != (int)ft_strlen(line))
+	// 	{
+	// 		ft_strdel(&line);
+	// 		showerror("Invalid map: not a retangle");
+	// 	}
+	// 	if (!check_line(line))
+	// 	{
+	// 		ft_strdel(&line);
+	// 		showerror("Invalid map: lateral wall not configured");
+	// 	}
+	// 	so_long->map[i++] = ft_strndup(line, len - 1);
+	// 	ft_strdel(&line);
+	// }
+	loop_check(so_long, filename);
 	so_long->map[i] = NULL;
-	if ((read_last(&i, so_long, &len)) < 0)
-		return (-2);
-	close(g_fd);
+	read_check2(so_long, i, len);
 	return (1);
 }
