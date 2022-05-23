@@ -59,13 +59,13 @@ int	check_line(char *line)
 	while (line[i])
 	{
 		if (!is_valid(line[i]))
-			showerror("Invalid map: lateral wall not configured");
+			showerror("Invalid map: invalid symbols");
 		else if (line[i] == 'P' || line[i] == 'C' || line[i] == 'E')
 			fill_symbol(line[i]);
 		i++;
 	}
 	if (line[i - 2] != '1')
-		showerror("Invalid map: last wall not configured");
+		showerror("Invalid map: wall not configured");
 	return (1);
 }
 

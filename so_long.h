@@ -93,6 +93,5 @@ int		read_check2(t_long *so_long, int i, int len);
 int		read_first(char *filename, t_long *so_long, char **line, int *len);
 int		check_if_last_line(char *line, t_long *so_long, int *i, int *len);
 int		read_last(int *i, t_long *so_long, int *len);
-int		loop_check(t_long *so_long, char **filename);
 
 #endif

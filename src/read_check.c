@@ -82,37 +82,42 @@ int	check_if_last_line(char *line, t_long *so_long, int *i, int *len)
 	return (0);
 }
 
+void	mini_check(char **line, int len)
+{
+	if (len != (int)ft_strlen(*line))
+	{
+		ft_strdel(line);
+		showerror("Invalid map: not a retangle");
+	}
+	if (!check_line(*line))
+	{
+		ft_strdel(line);
+		showerror("Error: Invalid map");
+	}
+}
+
 int	read_check(char *filename, t_long *so_long)
 {
-	// int		i;
-	// char	*line;
-	// int		len;
+	int		i;
+	char	*line;
+	int		len;
 
-	// i = 1;
-	// len = 0;
-	// if ((read_first(filename, so_long, &line, &len)) < 0)
-	// 	return (-1);
-	// line = get_next_line(g_fd);
-	// while (line || i > 1)
-	// {
-	// 	if (i > 1)
-	// 		line = get_next_line(g_fd);
-	// 	if (line && check_if_last_line(line, so_long, &i, &len) > 0)
-	// 		break ;
-	// 	if (len != (int)ft_strlen(line))
-	// 	{
-	// 		ft_strdel(&line);
-	// 		showerror("Invalid map: not a retangle");
-	// 	}
-	// 	if (!check_line(line))
-	// 	{
-	// 		ft_strdel(&line);
-	// 		showerror("Invalid map: lateral wall not configured");
-	// 	}
-	// 	so_long->map[i++] = ft_strndup(line, len - 1);
-	// 	ft_strdel(&line);
-	// }
-	loop_check(so_long, filename);
+	i = 1;
+	len = 0;
+	if ((read_first(filename, so_long, &line, &len)) < 0)
+		return (-1);
+	line = get_next_line(g_fd);
+	while (line || i > 1)
+	{
+		if (i > 1)
+			line = get_next_line(g_fd);
+		if (line && check_if_last_line(line, so_long, &i, &len) > 0)
+			break ;
+		mini_check(&line, len);
+		so_long->map[i++] = ft_strndup(line, len - 1);
+		ft_strdel(&line);
+	}
+	// loop_check(so_long, filename);
 	so_long->map[i] = NULL;
 	read_check2(so_long, i, len);
 	return (1);

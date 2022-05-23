@@ -28,9 +28,9 @@ HEADER=so_long.h
 INCLUDE= -I . -I $(LIBFT)
 
 OBJS=$(SRC:.c=.o)
-CFLAGS= -O3 -Wall -Wextra -Werror
+CFLAGS= -g -Wall -Wextra -Werror
 cc=gcc
-INC= -lmlx -framework OpenGL -framework AppKit #-L./mlx -I/usr/local/include/ 
+INC= -Lmlx -lmlx -framework OpenGL -framework AppKit #-L./mlx -I/usr/local/include/  -Lmlx -lmlx -framework OpenGL -framework AppKit
 RM= rm -f
 
 	
@@ -39,7 +39,7 @@ all: $(NAME)
 $(NAME):$(OBJS)
 	@make -C $(LIBFT)
 	$(cc) $(CFLAGS) $^ $(LIBFT_A) $(INC) -o $(NAME)
-%.o: %.c
+%.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 clean:
 	@make clean -C  $(LIBFT)
