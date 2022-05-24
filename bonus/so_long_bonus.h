@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 00:06:46 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/24 03:32:54 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/24 03:32:42 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include <mlx.h>
 # include <stdlib.h>
@@ -59,6 +59,7 @@ typedef struct s_vars {
 typedef struct s_long{
 	t_vars	mlx_ptr;
 	char	**map;
+	char	*img_sp;
 	int		x;
 	int		y;
 	int		px;

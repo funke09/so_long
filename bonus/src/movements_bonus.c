@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements.c                                        :+:      :+:    :+:   */
+/*   movements_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 05:53:42 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/24 03:22:10 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/24 03:50:16 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
 int	move_left(t_long *var)
 {
 	var->map[var->py][var->px] = '0';
 	var->px -= 1;
 	var->map[var->py][var->px] = 'P';
+	// var->img_sp = "images/sprite1.xpm";
 	var->move++;
 	return (0);
 }
@@ -26,6 +27,7 @@ int	move_right(t_long *var)
 	var->map[var->py][var->px] = '0';
 	var->px += 1;
 	var->map[var->py][var->px] = 'P';
+	// var->img_sp = "images/sprite2.xpm";
 	var->move++;
 	return (0);
 }
