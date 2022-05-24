@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 05:52:00 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/24 04:32:33 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/24 04:50:19 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,11 @@ int	deal_key(int key, t_long *so_long)
 		ft_exit(so_long);
 	}
 	else
+	{
+		// if (var->has_enemy > 0)
+		// 	step_into_enemy(key, var);
 		movements(key, so_long);
+	}
 	if (steps != so_long->move)
 		print_steps_int(steps);
 	print_map(so_long);
@@ -61,7 +65,6 @@ int	deal_key(int key, t_long *so_long)
 
 int	ft_expose(t_long *so_long)
 {
-	
 	print_map(so_long);
 	return (0);
 }
@@ -78,5 +81,7 @@ void	my_mlx(t_long *so_long)
 	1L << 0, deal_key, so_long);
 	mlx_hook(so_long->mlx_ptr.win, X_EVENT_KEY_EXIT, 1L << 0, ft_exit, so_long);
 	mlx_expose_hook(so_long->mlx_ptr.win, ft_expose, so_long);
+	// if (var.has_enemy > 0)
+	// 	mlx_loop_hook(var.mlx, enemy_patrol, &var);
 	mlx_loop(so_long->mlx_ptr.mlx);
 }
