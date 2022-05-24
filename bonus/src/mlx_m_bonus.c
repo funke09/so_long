@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 05:52:00 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/24 03:36:10 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/24 04:32:33 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int	deal_key(int key, t_long *so_long)
 
 int	ft_expose(t_long *so_long)
 {
+	
 	print_map(so_long);
 	return (0);
 }

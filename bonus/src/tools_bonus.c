@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 06:14:37 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/24 03:35:52 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/24 04:26:37 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	fill_symbol(char c)
 		g_symbol[COLL] += 1;
 	else if (c == 'E')
 		g_symbol[EXT] += 1;
+	else if (c == 'N')
+		g_symbol[ENM] += 1;
 }
 
 int	check_line(char *line)
@@ -60,7 +62,8 @@ int	check_line(char *line)
 	{
 		if (!is_valid(line[i]))
 			showerror("Invalid map: invalid symbols");
-		else if (line[i] == 'P' || line[i] == 'C' || line[i] == 'E')
+		else if (line[i] == 'P' || line[i] == 'C' || \
+		line[i] == 'E' || line[i] == 'N')
 			fill_symbol(line[i]);
 		i++;
 	}
