@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 05:46:30 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/24 03:49:16 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/24 04:23:18 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ void	load_image(t_long *so_long, int x, int y)
 	else if (so_long->map[y][x] == 'P')
 	{
 		so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
-		"images/sprite1.xpm", &so_long->x, &so_long->y);
-		// ft_putstr_fd(so_long->img_sp, 1);
+		so_long->img_sp, &so_long->x, &so_long->y);
+		
+		// so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
+		// "images/sprite.xpm", &so_long->x, &so_long->y);
+		// // ft_putstr_fd(so_long->img_sp, 1);
 	}
 	else if (so_long->map[y][x] == '1')
 		so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \

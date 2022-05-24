@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 05:53:42 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/24 03:50:16 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/24 04:09:23 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	move_left(t_long *var)
 	var->map[var->py][var->px] = '0';
 	var->px -= 1;
 	var->map[var->py][var->px] = 'P';
-	// var->img_sp = "images/sprite1.xpm";
+	var->img_sp = "images/sprite2.xpm";
 	var->move++;
 	return (0);
 }
@@ -27,7 +27,7 @@ int	move_right(t_long *var)
 	var->map[var->py][var->px] = '0';
 	var->px += 1;
 	var->map[var->py][var->px] = 'P';
-	// var->img_sp = "images/sprite2.xpm";
+	var->img_sp = "images/sprite.xpm";
 	var->move++;
 	return (0);
 }
