@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 04:46:11 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/30 06:08:08 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 08:27:52 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ int	enemy_move_up(t_long *var)
 
 int	enemy_patrol(t_long *var)
 {
-	// usleep(200000);
-	sleep(1);
+	usleep(80000);
 	get_enemy_position(var);
 	if ((var->map[var->ny][var->nx + 1] == '0'
 		|| var->map[var->ny][var->nx + 1] == 'P')
@@ -69,11 +68,10 @@ int	enemy_patrol(t_long *var)
 		|| var->map[var->ny + 1][var->nx] == 'P')
 		&& var->count_enemy < (g_x + g_y))
 		enemy_move_down(var);
-	else if ( (var->map[var->ny][var->nx - 1] == '0' || var->map[var->ny][var->nx - 1] == 'P') && var->count_enemy < ((2 * g_x) + g_y) )
+	else if ( (var->map[var->ny][var->nx - 1] == '0' || var->map[var->ny][var->nx - 1] == 'P'))
 		enemy_move_left(var);
 	else if ((var->map[var->ny - 1][var->nx] == '0'
-		|| var->map[var->ny - 1][var->nx] == 'P')
-		&& var->count_enemy < (2 * (g_x + g_y)))
+		|| var->map[var->ny - 1][var->nx] == 'P') )
 		enemy_move_up(var);
 	else
 		var->count_enemy = 0;

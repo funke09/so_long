@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 05:53:42 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/28 23:16:47 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 08:19:02 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	move_left(t_long *var)
 {
+	if (var->map[var->py][var->px - 1] == 'N')
+		free_exit(var, "\e[31m\e[1mGAME OVER\n!!!! You LOST !!!!\e[0m\n");
 	var->map[var->py][var->px] = '0';
 	var->px -= 1;
 	var->map[var->py][var->px] = 'P';
@@ -24,6 +26,8 @@ int	move_left(t_long *var)
 
 int	move_right(t_long *var)
 {
+	if (var->map[var->py][var->px + 1] == 'N')
+		free_exit(var, "\e[31m\e[1mGAME OVER\n!!!! You LOST !!!!\e[0m\n");
 	var->map[var->py][var->px] = '0';
 	var->px += 1;
 	var->map[var->py][var->px] = 'P';
@@ -34,6 +38,8 @@ int	move_right(t_long *var)
 
 int	move_down(t_long *var)
 {
+	if (var->map[var->py + 1][var->px] == 'N')
+		free_exit(var, "\e[31m\e[1mGAME OVER\n!!!! You LOST !!!!\e[0m\n");
 	var->map[var->py][var->px] = '0';
 	var->py += 1;
 	var->map[var->py][var->px] = 'P';
@@ -43,6 +49,8 @@ int	move_down(t_long *var)
 
 int	move_up(t_long *var)
 {
+	if (var->map[var->py - 1][var->px] == 'N')
+		free_exit(var, "\e[31m\e[1mGAME OVER\n!!!! You LOST !!!!\e[0m\n");
 	var->map[var->py][var->px] = '0';
 	var->py -= 1;
 	var->map[var->py][var->px] = 'P';

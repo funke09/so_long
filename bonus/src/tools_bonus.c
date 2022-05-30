@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 06:14:37 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/30 05:47:31 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 08:11:19 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ int	count_enemy(t_long *var)
 	int		col;
 
 	row = 0;
-	var->count_enemy = 0;
 	while (row < g_y)
 	{
 		col = 0;

@@ -6,31 +6,11 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 04:45:29 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/30 06:01:12 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 07:57:02 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long_bonus.h"
-
-// int	check_enemy(t_long *var)
-// {
-// 	int		row;
-// 	int		col;
-
-// 	row = 0;
-// 	while (row < g_y)
-// 	{
-// 		col = 0;
-// 		while (col < g_x)
-// 		{
-// 			if (var->map[row][col] == 'N')
-// 				var->enemy++;
-// 			col++;
-// 		}
-// 		row++;
-// 	}
-// 	return (0);
-// }
 
 int	get_enemy_position(t_long *var)
 {

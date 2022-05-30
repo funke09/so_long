@@ -6,7 +6,7 @@
 #    By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 01:03:59 by zcherrad          #+#    #+#              #
-#    Updated: 2022/05/29 01:21:42 by zcherrad         ###   ########.fr        #
+#    Updated: 2022/05/30 08:31:06 by zcherrad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ clean:
 
 fclean: clean
 	@make fclean -C $(LIBFT)
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(B_NAME)
 
 re: fclean all
 

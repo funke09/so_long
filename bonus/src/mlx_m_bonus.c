@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 05:52:00 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/30 06:10:27 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 08:30:20 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	my_mlx(t_long *so_long)
 {
 	so_long->mlx_ptr.mlx = mlx_init();
 	so_long->mlx_ptr.win = mlx_new_window(so_long->mlx_ptr.mlx, \
-	g_x * SIZE, g_y * SIZE, "so_long ");
+	g_x * SIZE, g_y * SIZE, "so_long_bonus");
 	pos_player(so_long);
 	count_collec(so_long);
 	count_enemy(so_long);
@@ -80,7 +80,7 @@ void	my_mlx(t_long *so_long)
 	1L << 0, deal_key, so_long);
 	mlx_hook(so_long->mlx_ptr.win, X_EVENT_KEY_EXIT, 1L << 0, ft_exit, so_long);
 	mlx_expose_hook(so_long->mlx_ptr.win, ft_expose, so_long);
-	// if (so_long->count_enemy > 0)
-	// 	mlx_loop_hook(so_long->mlx_ptr.mlx, enemy_patrol, so_long);
+	if (so_long->count_enemy > 0)
+		mlx_loop_hook(so_long->mlx_ptr.mlx, enemy_patrol, so_long);
 	mlx_loop(so_long->mlx_ptr.mlx);
 }
