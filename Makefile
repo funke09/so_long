@@ -6,7 +6,7 @@
 #    By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 01:03:59 by zcherrad          #+#    #+#              #
-#    Updated: 2022/05/30 08:32:57 by zcherrad         ###   ########.fr        #
+#    Updated: 2022/05/30 08:58:54 by zcherrad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ B_SRC=bonus/src/main_bonus.c\
 	bonus/src/utils_bonus.c\
 
 HEADER=so_long.h
+B_HEADER=bonus/so_long_bonus.h
 
 INCLUDE= -I . -I $(LIBFT)
 
@@ -45,7 +46,20 @@ cc=gcc
 INC= -Lmlx -lmlx -framework OpenGL -framework AppKit #-L./mlx -I/usr/local/include/  -Lmlx -lmlx -framework OpenGL -framework AppKit
 RM= rm -f
 
-	
+
+
+bonus: $(B_NAME)
+
+$(B_NAME):$(B_OBJS)
+	@make -C $(LIBFT)
+	$(cc) $(CFLAGS) $^ $(LIBFT_A) $(INC) -o $(B_NAME)
+%.o: %.c $(B_HEADER)
+	$(cc) $(CFLAGS) -c $< -o $@
+
+
+
+
+
 all: $(NAME)
 
 $(NAME):$(OBJS)
@@ -63,11 +77,3 @@ fclean: clean
 	$(RM) $(NAME) $(B_NAME)
 
 re: fclean all
-
-bonus: $(B_NAME)
-
-$(B_NAME):$(B_OBJS)
-	@make -C $(LIBFT)
-	$(cc) $(CFLAGS) $^ $(LIBFT_A) $(INC) -o $(B_NAME)
-%.o: %.c $(HEADER)
-	$(cc) $(CFLAGS) -c $< -o $@

@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 00:06:46 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/30 08:36:57 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 08:59:16 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdio.h>
 
 # include "libft/libft.h"
-# define POS 0
+# define POS 0 
 # define COLL 1
 # define EXT 2
 # define ENM 3
