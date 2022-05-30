@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 05:46:30 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/30 07:51:40 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 08:42:58 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ void	pos_player(t_long *so_long)
 		i++;
 	}
 }
-
 
 void	print_steps_int(int steps)
 {

@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 05:46:30 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/30 07:56:29 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 08:40:03 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	load_image(t_long *so_long, int x, int y)
 	mlx_put_image_to_window(so_long->mlx_ptr.mlx, so_long->mlx_ptr.win, \
 	so_long->image, x * SIZE, y * SIZE);
 	mlx_destroy_image(so_long->mlx_ptr.mlx, so_long->image);
-	// so_long->image = NULL;
+	so_long->image = 0;
 }
 
 void	print_map(t_long *so_long)
@@ -83,9 +83,8 @@ void	pos_player(t_long *so_long)
 
 void	print_steps_int(int steps)
 {
-	(void)steps;
-	// ft_putstr_fd("\e[1;1H\e[2J", 1);
-	// ft_putstr_fd("Steps: ", 1);
-	// ft_putnbr_fd(steps, 1);
-	// ft_putchar_fd('\n', 1);
+	ft_putstr_fd("\e[1;1H\e[2J", 1);
+	ft_putstr_fd("Steps: ", 1);
+	ft_putnbr_fd(steps, 1);
+	ft_putchar_fd('\n', 1);
 }

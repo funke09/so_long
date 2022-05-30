@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 04:45:29 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/30 07:57:02 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 08:38:16 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	get_enemy_position(t_long *var)
 
 int	step_into_enemy(int key, t_long *var)
 {
-	if ((key == A_KEY) 
+	if ((key == A_KEY)
 		&& (var->map[var->py][var->px - 1] == 'N'))
 	{
 		free_exit(var, "\e[31m\e[1mGAME OVER\n!!!! You LOST !!!!\e[0m\n");

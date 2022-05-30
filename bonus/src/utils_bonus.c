@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 00:02:51 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/24 03:36:18 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 08:39:38 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ void	free_long(t_long *so_long)
 	while (so_long->map[i])
 	{
 		free(so_long->map[i]);
-		so_long->map[i] = NULL;
+		so_long->map[i] = 0;
 		i++;
 	}
 	free(so_long->map);
-	so_long->map = NULL;
+	so_long->map = 0;
 }
 
 int	print_steps(t_long *var)

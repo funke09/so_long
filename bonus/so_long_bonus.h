@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 00:06:46 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/30 08:28:54 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 08:36:57 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int		enemy_patrol(t_long *var);
 int		check_enemy(t_long *var);
 int		get_enemy_position(t_long *var);
 int		step_into_enemy(int key, t_long *var);
-int	free_exit(t_long *var, char *msg);
-int	count_enemy(t_long *var);
+int		free_exit(t_long *var, char *msg);
+int		count_enemy(t_long *var);
 
 #endif

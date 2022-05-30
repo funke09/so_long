@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 06:00:40 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/24 03:36:06 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 08:41:45 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	read_check(char *filename, t_long *so_long)
 		so_long->map[i++] = ft_strndup(line, len - 1);
 		ft_strdel(&line);
 	}
-	so_long->map[i] = NULL;
+	so_long->map[i] = 0;
 	read_check2(so_long, i, len);
 	return (1);
 }

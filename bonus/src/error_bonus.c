@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 05:45:46 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/29 02:30:41 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 08:39:11 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,22 @@ int	free_exit(t_long *var, char *msg)
 	exit(0);
 }
 
+int	count_enemy(t_long *var)
+{
+	int		row;
+	int		col;
+
+	row = 0;
+	while (row < g_y)
+	{
+		col = 0;
+		while (col < g_x)
+		{
+			if (var->map[row][col] == 'N')
+				var->count_enemy += 1;
+			col++;
+		}
+		row++;
+	}
+	return (var->count_enemy);
+}

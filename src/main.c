@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 05:42:12 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/28 21:51:39 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 08:41:23 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,16 @@
 void	check_extension(char *filename)
 {
 	int	i;
-	
+
 	i = 0;
 	while (filename[i])
 		i++;
-	 if (i <= 4)
-	 	showerror("error: missed filename.ber");
+	if (i <= 4)
+		showerror("error: missed filename.ber");
 	if (filename[i - 1] != 'r' || filename[i - 2] != 'e' \
 	|| filename[i - 3] != 'b' \
- 		|| filename[i - 4] != '.')
-		showerror("error: invalid filename");		
-	return;
+	|| filename[i - 4] != '.')
+		showerror("error: invalid filename");
 }
 
 int	main(int ac, char **av)
