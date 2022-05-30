@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 05:52:00 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/22 20:02:14 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 05:38:31 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	convert_color(int color, int endian)
 
 int	ft_exit(t_long *so_long)
 {
+	ft_putstr_fd("\e[33m\e[1mGame closed!\e[0m\n", 1);
 	mlx_destroy_window(so_long->mlx_ptr.mlx, so_long->mlx_ptr.win);
 	free_long(so_long);
 	exit (0);
@@ -46,10 +47,7 @@ int	deal_key(int key, t_long *so_long)
 
 	steps = so_long->move;
 	if (key == ESC)
-	{
-		ft_putstr_fd("\e[33m\e[1mGame closed! (ESC)\e[0m\n", 1);
 		ft_exit(so_long);
-	}
 	else
 		movements(key, so_long);
 	if (steps != so_long->move)
@@ -69,7 +67,7 @@ void	my_mlx(t_long *so_long)
 {
 	so_long->mlx_ptr.mlx = mlx_init();
 	so_long->mlx_ptr.win = mlx_new_window(so_long->mlx_ptr.mlx, \
-	g_x * SIZE, g_y * SIZE, "so_long ");
+	g_x * SIZE, g_y * SIZE, "so_long");
 	pos_player(so_long);
 	count_collec(so_long);
 	print_map(so_long);

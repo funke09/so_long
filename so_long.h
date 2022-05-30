@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 00:06:46 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/24 03:32:54 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/28 23:12:02 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define LEFT_KEY  123
 # define RIGHT_KEY 124
 # define UP_KEY 126
-# define DOWN_KEY  125
+# define DOWN_KEY 125
 # define A_KEY  0
 # define S_KEY  1
 # define D_KEY  2

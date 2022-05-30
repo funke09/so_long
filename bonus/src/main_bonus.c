@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 05:42:12 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/24 04:07:31 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 05:40:12 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 		showerror("error: usage ./so_long filename.");
+	check_extension(av[1]);
 	ret = read_check(av[1], &so_long);
 	if (ret < 0)
 		return (ret);

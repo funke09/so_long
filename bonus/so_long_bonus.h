@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 00:06:46 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/24 03:32:42 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 05:47:39 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,12 @@ typedef struct s_long{
 	int		y;
 	int		px;
 	int		py;
-
+	int		nx;
+	int		ny;
 	void	*image;
 	int		move;
+	int		enemy;
+	int		count_enemy;
 	int		collect;
 }				t_long;
 
@@ -95,5 +98,11 @@ int		read_first(char *filename, t_long *so_long, char **line, int *len);
 int		check_if_last_line(char *line, t_long *so_long, int *i, int *len);
 int		read_last(int *i, t_long *so_long, int *len);
 void	mini_check(char **line, int len);
+int		enemy_patrol(t_long *var);
+int		check_enemy(t_long *var);
+int		get_enemy_position(t_long *var);
+int		step_into_enemy(int key, t_long *var);
+int	free_exit(t_long *var, char *msg);
+int	count_enemy(t_long *var);
 
 #endif

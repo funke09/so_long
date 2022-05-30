@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 06:14:37 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/22 01:46:33 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/05/30 05:46:52 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	full_wall(char *line)
 int	is_valid(char c)
 {
 	if (c == '1' || c == '0' || c == 'E' || c == 'C' || c == 'P' \
-	|| c == '\n' || c == 'N')
+	|| c == '\n')
 		return (1);
 	return (0);
 }

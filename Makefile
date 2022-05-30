@@ -6,7 +6,7 @@
 #    By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 01:03:59 by zcherrad          #+#    #+#              #
-#    Updated: 2022/05/24 03:07:11 by zcherrad         ###   ########.fr        #
+#    Updated: 2022/05/29 01:21:42 by zcherrad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,8 @@ B_SRC=bonus/src/main_bonus.c\
 	bonus/src/tools_bonus.c\
 	bonus/src/mlx_m_bonus.c\
 	bonus/src/mlx_image_bonus.c\
+	bonus/src/enemy_bonus.c\
+	bonus/src/enemy_move_bonus.c\
 	bonus/src/movements_bonus.c\
 	bonus/src/utils_bonus.c\
 
@@ -52,7 +54,7 @@ $(NAME):$(OBJS)
 	$(cc) $(CFLAGS) $^ $(LIBFT_A) $(INC) -o $(NAME)
 
 %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(cc) $(CFLAGS) -c $< -o $@
 clean:
 	@make clean -C  $(LIBFT)
 	$(RM) $(OBJS) $(B_OBJS)
@@ -69,4 +71,4 @@ $(B_NAME):$(B_OBJS)
 	@make -C $(LIBFT)
 	$(cc) $(CFLAGS) $^ $(LIBFT_A) $(INC) -o $(B_NAME)
 %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(cc) $(CFLAGS) -c $< -o $@
