@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 06:14:37 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/06/04 01:48:26 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/06/04 23:29:12 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,17 @@ int	is_valid(char c)
 	return (0);
 }
 
-void	fill_symbol(char c)
+void	fill_symbol(char c, t_long *so)
 {
 	if (c == 'P')
-		g_symbol[POS] += 1;
+		so->g_symbol[POS] += 1;
 	else if (c == 'C')
-		g_symbol[COLL] += 1;
+		so->g_symbol[COLL] += 1;
 	else if (c == 'E')
-		g_symbol[EXT] += 1;
+		so->g_symbol[EXT] += 1;
 }
 
-int	check_line(char *line)
+int	check_line(char *line, t_long *so_long)
 {
 	int	i;
 
@@ -61,7 +61,7 @@ int	check_line(char *line)
 		if (!is_valid(line[i]))
 			showerror("Invalid map: invalid symbols");
 		else if (line[i] == 'P' || line[i] == 'C' || line[i] == 'E')
-			fill_symbol(line[i]);
+			fill_symbol(line[i], so_long);
 		i++;
 	}
 	if (line[i - 2] != '1')
@@ -76,10 +76,10 @@ int	count_collec(t_long *var)
 
 	row = 0;
 	var->collect = 0;
-	while (row < so_long->g_y)
+	while (row < var->g_y)
 	{
 		col = 0;
-		while (col < so_long->g_x)
+		while (col < var->g_x)
 		{
 			if (var->map[row][col] == 'C')
 				var->collect += 1;

@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 04:45:29 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/06/04 01:48:26 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/06/04 23:45:46 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	get_enemy_position(t_long *var)
 	int		col;
 
 	row = 0;
-	while (row < so_long->g_y)
+	while (row < var->g_y)
 	{
 		col = 0;
-		while (col < so_long->g_x)
+		while (col < var->g_x)
 		{
 			if (var->map[row][col] == 'N')
 			{

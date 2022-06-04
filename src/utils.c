@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 00:02:51 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/05/24 02:35:13 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/06/04 23:30:41 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,18 @@ int	read_check2(t_long *so_long, int i, int len)
 {
 	if ((read_last(&i, so_long, &len)) < 0)
 		return (-2);
-	close(g_fd);
+	close(so_long->g_fd);
 	return (1);
 }
 
-void	mini_check(char **line, int len)
+void	mini_check(char **line, int len, t_long *so)
 {
 	if (len != (int)ft_strlen(*line))
 	{
 		ft_strdel(line);
 		showerror("Invalid map: not a retangle");
 	}
-	if (!check_line(*line))
+	if (!check_line(*line, so))
 	{
 		ft_strdel(line);
 		showerror("Error: Invalid map");

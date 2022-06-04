@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 00:06:46 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/06/04 01:48:35 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/06/04 23:31:15 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ typedef struct s_long{
 void	showerror(char *message);
 int		read_check(char *filename, t_long *so_long);
 int		full_wall(char *line);
-int		check_line(char *line);
-int		count_lines(char *filename);
+int		check_line(char *line, t_long *so_long);
+int		count_lines(char *filename, t_long *so_long);
 int		is_valid(char c);
 int		convert_color(int color, int endian);
 int		deal_key(int key, t_long *so_long);
@@ -98,6 +98,6 @@ int		read_check2(t_long *so_long, int i, int len);
 int		read_first(char *filename, t_long *so_long, char **line, int *len);
 int		check_if_last_line(char *line, t_long *so_long, int *i, int *len);
 int		read_last(int *i, t_long *so_long, int *len);
-void	mini_check(char **line, int len);
+void	mini_check(char **line, int len, t_long *so);
 
 #endif

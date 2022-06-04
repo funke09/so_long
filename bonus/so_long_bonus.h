@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 00:06:46 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/06/04 01:48:26 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/06/04 23:47:01 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,6 @@
 # define SIZE 50 
 # define NULL  __DARWIN_NULL
 
-int	so_long->g_x;
-int	so_long->g_y;
-int	g_symbol[4];
-int	g_fd;
 
 typedef struct s_data {
 	void	*img;
@@ -71,13 +67,17 @@ typedef struct s_long{
 	int		enemy;
 	int		count_enemy;
 	int		collect;
+	int	g_x;
+	int	g_y;
+	int	g_symbol[4];
+	int	g_fd;
 }				t_long;
 
 void	showerror(char *message);
 int		read_check(char *filename, t_long *so_long);
 int		full_wall(char *line);
-int		check_line(char *line);
-int		count_lines(char *filename);
+int		check_line(char *line, t_long *so);
+int		count_lines(char *filename,t_long *so);
 int		is_valid(char c);
 int		convert_color(int color, int endian);
 int		deal_key(int key, t_long *so_long);
@@ -97,7 +97,7 @@ int		read_check2(t_long *so_long, int i, int len);
 int		read_first(char *filename, t_long *so_long, char **line, int *len);
 int		check_if_last_line(char *line, t_long *so_long, int *i, int *len);
 int		read_last(int *i, t_long *so_long, int *len);
-void	mini_check(char **line, int len);
+void	mini_check(char **line, int len, t_long *so_long);
 int		enemy_patrol(t_long *var);
 int		check_enemy(t_long *var);
 int		get_enemy_position(t_long *var);

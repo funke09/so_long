@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 04:46:11 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/06/04 01:48:26 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/06/04 23:45:30 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ int	enemy_patrol(t_long *var)
 	get_enemy_position(var);
 	if ((var->map[var->ny][var->nx + 1] == '0'
 		|| var->map[var->ny][var->nx + 1] == 'P')
-		&& var->count_enemy < so_long->g_x)
+		&& var->count_enemy < var->g_x)
 		enemy_move_right(var);
 	else if ((var->map[var->ny + 1][var->nx] == '0'
 		|| var->map[var->ny + 1][var->nx] == 'P')
-		&& var->count_enemy < (so_long->g_x + so_long->g_y))
+		&& var->count_enemy < (var->g_x + var->g_y))
 		enemy_move_down(var);
 	else if ((var->map[var->ny][var->nx - 1] == '0' \
 	|| var->map[var->ny][var->nx - 1] == 'P'))

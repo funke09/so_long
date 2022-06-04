@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 05:45:46 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/06/04 01:48:26 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/06/04 23:44:51 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ int	count_enemy(t_long *var)
 	int		col;
 
 	row = 0;
-	while (row < so_long->g_y)
+	while (row < var->g_y)
 	{
 		col = 0;
-		while (col < so_long->g_x)
+		while (col < var->g_x)
 		{
 			if (var->map[row][col] == 'N')
 				var->count_enemy += 1;
