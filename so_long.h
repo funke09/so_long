@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 00:06:46 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/06/04 23:31:15 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/06/04 23:50:22 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,6 @@
 # define SIZE 50 
 # define NULL  __DARWIN_NULL
 
-// int	so_long->g_x;
-// int	so_long->g_y;
-// int	g_symbol[4];
-// int	g_fd;
-
-typedef struct s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
-
 typedef struct s_vars {
 	void	*mlx;
 	void	*win;
@@ -80,7 +67,6 @@ int		full_wall(char *line);
 int		check_line(char *line, t_long *so_long);
 int		count_lines(char *filename, t_long *so_long);
 int		is_valid(char c);
-int		convert_color(int color, int endian);
 int		deal_key(int key, t_long *so_long);
 void	load_image(t_long *lg, int x, int y);
 void	print_map(t_long *so_long);

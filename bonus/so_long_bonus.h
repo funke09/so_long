@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 00:06:46 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/06/04 23:47:01 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/06/04 23:51:12 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,6 @@
 # define X_EVENT_KEY_EXIT        17 // ESC / exit
 # define SIZE 50 
 # define NULL  __DARWIN_NULL
-
-
-typedef struct s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
 
 typedef struct s_vars {
 	void	*mlx;
@@ -79,7 +70,6 @@ int		full_wall(char *line);
 int		check_line(char *line, t_long *so);
 int		count_lines(char *filename,t_long *so);
 int		is_valid(char c);
-int		convert_color(int color, int endian);
 int		deal_key(int key, t_long *so_long);
 void	load_image(t_long *lg, int x, int y);
 void	print_map(t_long *so_long);
