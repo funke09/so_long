@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 06:00:40 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/06/04 23:48:55 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/06/05 00:28:52 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ int	read_last(int *i, t_long *so_long, int *len)
 {
 	if (!full_wall(so_long->map[*i - 1]))
 		showerror("Invalid map: down wall not configured");
-	if (so_long->g_symbol[POS] != 1 || so_long->g_symbol[COLL] < 1 || so_long->g_symbol[EXT] < 1)
+	if (so_long->g_symbol[POS] != 1 || so_long->g_symbol[COLL] < 1 || \
+	so_long->g_symbol[EXT] < 1)
 		showerror("Invalid map: invalid symbols");
 	so_long->g_x = (*len) - 1;
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 00:06:46 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/06/04 23:51:12 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/06/05 00:28:15 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define W_KEY  13
 # define ESC 53
 # define X_EVENT_KEY_PRESS        2
-# define X_EVENT_KEY_EXIT        17 // ESC / exit
+# define X_EVENT_KEY_EXIT        17
 # define SIZE 50 
 # define NULL  __DARWIN_NULL
 
@@ -58,17 +58,17 @@ typedef struct s_long{
 	int		enemy;
 	int		count_enemy;
 	int		collect;
-	int	g_x;
-	int	g_y;
-	int	g_symbol[4];
-	int	g_fd;
+	int		g_x;
+	int		g_y;
+	int		g_symbol[4];
+	int		g_fd;
 }				t_long;
 
 void	showerror(char *message);
 int		read_check(char *filename, t_long *so_long);
 int		full_wall(char *line);
 int		check_line(char *line, t_long *so);
-int		count_lines(char *filename,t_long *so);
+int		count_lines(char *filename, t_long *so);
 int		is_valid(char c);
 int		deal_key(int key, t_long *so_long);
 void	load_image(t_long *lg, int x, int y);

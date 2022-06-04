@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 00:06:46 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/06/04 23:50:22 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/06/05 00:27:14 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,13 @@ typedef struct s_long{
 	int		y;
 	int		px;
 	int		py;
-
 	void	*image;
 	int		move;
 	int		collect;
-
-	int	g_x;
-	int	g_y;
-	int	g_symbol[4];
-	int	g_fd;
+	int		g_x;
+	int		g_y;
+	int		g_symbol[4];
+	int		g_fd;
 }				t_long;
 
 void	showerror(char *message);

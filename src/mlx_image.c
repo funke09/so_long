@@ -6,7 +6,7 @@
 /*   By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 05:46:30 by zcherrad          #+#    #+#             */
-/*   Updated: 2022/06/04 01:48:26 by zcherrad         ###   ########.fr       */
+/*   Updated: 2022/06/05 00:26:46 by zcherrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	load_image(t_long *so_long, int x, int y)
 		"images/tree.xpm", &so_long->x, &so_long->y);
 	else if (so_long->map[y][x] == '0')
 		so_long->image = mlx_xpm_file_to_image(so_long->mlx_ptr.mlx, \
-		"images/space.xpm", &so_long->x, &so_long->y); 
+		"images/space.xpm", &so_long->x, &so_long->y);
 	if (!so_long->image)
 		showerror("error missed .xpm file.");
 	mlx_put_image_to_window(so_long->mlx_ptr.mlx, so_long->mlx_ptr.win, \

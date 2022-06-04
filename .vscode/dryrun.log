@@ -1,14 +1,15 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/zcherrad/Desktop/bug'
 gcc -Wall -Wextra -Werror -c src/main.c -o src/main.o
 gcc -Wall -Wextra -Werror -c src/error.c -o src/error.o
 gcc -Wall -Wextra -Werror -c src/read_check.c -o src/read_check.o
 gcc -Wall -Wextra -Werror -c src/tools.c -o src/tools.o
 gcc -Wall -Wextra -Werror -c src/mlx_m.c -o src/mlx_m.o
+ 
 gcc -Wall -Wextra -Werror -c src/mlx_image.c -o src/mlx_image.o
 gcc -Wall -Wextra -Werror -c src/movements.c -o src/movements.o
 gcc -Wall -Wextra -Werror -c src/utils.c -o src/utils.o
 make -C ./libft/
-gcc -Wall -Wextra -Werror src/main.o src/error.o src/read_check.o src/tools.o src/mlx_m.o src/mlx_image.o src/movements.o src/utils.o ./libft/libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit  -o so_long
+gcc -Wall -Wextra -Werror src/main.o src/error.o src/read_check.o src/tools.o src/mlx_m.o src/mlx_image.o src/movements.o src/utils.o ./libft/libft.a -lmlx -framework OpenGL -framework AppKit  -o so_long
 make: Leaving directory `/Users/zcherrad/Desktop/bug'
  

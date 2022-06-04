@@ -6,7 +6,7 @@
 #    By: zcherrad <zcherrad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 01:03:59 by zcherrad          #+#    #+#              #
-#    Updated: 2022/05/30 10:44:19 by zcherrad         ###   ########.fr        #
+#    Updated: 2022/06/05 00:31:29 by zcherrad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ OBJS=$(SRC:.c=.o)
 B_OBJS=$(B_SRC:.c=.o)
 CFLAGS= -Wall -Wextra -Werror
 cc=gcc
-INC= -Lmlx -lmlx -framework OpenGL -framework AppKit #-L./mlx -I/usr/local/include/  -Lmlx -lmlx -framework OpenGL -framework AppKit
+INC= -lmlx -framework OpenGL -framework AppKit #-L./mlx -I/usr/local/include/  -Lmlx -lmlx -framework OpenGL -framework AppKit
 RM= rm -f
 
 all: $(NAME)
@@ -61,7 +61,7 @@ clean:
 
 fclean: clean
 	@make fclean -C $(LIBFT)
-	@make clean -C $(MLX)
+	# @make clean -C $(MLX)
 	$(RM) $(NAME) $(B_NAME)
 
 re: fclean all
